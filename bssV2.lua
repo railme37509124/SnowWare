@@ -8,7 +8,7 @@ local info = "Please Take Caution when AutoFarming Snowflakes overnight! Issues?
 
 --[[game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
-        syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/railme37509124/SnowWare/main/bssV2.lua'))()")
+        syn.queue_on_teleport(" ")
     end
 end)--]]
 
@@ -29,6 +29,7 @@ end
 
 chatmsg(info, Color3.fromRGB(107, 170, 253))
 notif("SnowWare", info, 5)
+notif("SnowWare", "Sometimes snowflakes wont collect just keep waiting or serverhop & add to autoexec", 15)
 
 function getsnowflake()
     return path:GetChildren()[math.random(1, #path:GetChildren())]
