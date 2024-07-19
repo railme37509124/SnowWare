@@ -5,12 +5,7 @@
 local path = workspace:WaitForChild"Particles":WaitForChild"Snowflakes"
 local lplr = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local info = "Please Take Caution when AutoFarming Snowflakes overnight! Issues? discord.gg/FJQXYfaAh2"
-
---[[game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.Started then
-        syn.queue_on_teleport(" ")
-    end
-end)--]]
+local collecttick = tick()
 
 function chatmsg(t,c)
     game.StarterGui:SetCore("ChatMakeSystemMessage", {
@@ -28,15 +23,20 @@ function notif(ti,tx,du)
 end
 
 chatmsg(info, Color3.fromRGB(107, 170, 253))
+chatmsg("Version 1.0.2", Color3.fromRGB(107, 170, 253))
 notif("SnowWare", info, 5)
-notif("SnowWare", "Sometimes snowflakes wont collect just keep waiting or serverhop & add to autoexec", 15)
+notif("SnowWare", "Sometimes snowflakes wont collect just keep waiting or serverhop & add to autoexec", 5)
 
 function getsnowflake()
     return path:GetChildren()[math.random(1, #path:GetChildren())]
 end
 
 while true do
-    lplr.HumanoidRootPart.CFrame = getsnowflake().CFrame
-    notif("SnowWare", "Teleporting To Snowflake", 2.5) --Sorry for a bit of notification spam
+    notif("SnowWare", "Collecting Snowflake", 2.5) --Sorry for a bit of notification spam
+    selectedsnowflake = getsnowflake()
+    collecttick = tick()
+    repeat task.wait()
+        lplr.HumanoidRootPart.CFrame = selectedsnowflake.CFrame + Vector3.new(0, 15, 0)
+    until (tick() - collecttick > 4.5)
     task.wait(6)
 end
