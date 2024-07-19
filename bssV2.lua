@@ -23,12 +23,17 @@ function notif(ti,tx,du)
 end
 
 chatmsg(info, Color3.fromRGB(107, 170, 253))
-chatmsg("Version 1.0.2", Color3.fromRGB(107, 170, 253))
 notif("SnowWare", info, 5)
 notif("SnowWare", "Sometimes snowflakes wont collect just keep waiting or serverhop & add to autoexec", 5)
 
 function getsnowflake()
-    return path:GetChildren()[math.random(1, #path:GetChildren())]
+    if #path:GetChildren() ~= 0 then
+        return path:GetChildren()[math.random(1, #path:GetChildren())]
+    else
+        notif("SnowWare", "No SnowFlakes Found", 5)
+        getsnowflake()
+        task.wait(1)
+    end
 end
 
 while true do
@@ -36,7 +41,8 @@ while true do
     selectedsnowflake = getsnowflake()
     collecttick = tick()
     repeat task.wait()
-        lplr.HumanoidRootPart.CFrame = selectedsnowflake.CFrame + Vector3.new(0, 15, 0)
+        game:GetService("TweenService"):Create(lplr.HumanoidRootPart, TweenInfo.new(1), {CFrame = selectedsnowflake.CFrame + Vector3.new(0, 15, 0)}):Play()
+        lplr.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
     until (tick() - collecttick > 4.5)
     task.wait(6)
 end
