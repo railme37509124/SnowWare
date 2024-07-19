@@ -32,11 +32,12 @@ function getsnowflake()
     else
         notif("SnowWare", "No SnowFlakes Found", 5)
         getsnowflake()
-        task.wait(1)
+        task.wait(0.1)
     end
 end
 
 while true do
+    lplr = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
     notif("SnowWare", "Collecting Snowflake", 2.5) --Sorry for a bit of notification spam
     selectedsnowflake = getsnowflake()
     collecttick = tick()
