@@ -1,6 +1,10 @@
+-- SnowWare Snowflake farmer by crystalHub
+-- Issues? discord.gg/FJQXYfaAh2
+-- Load an Anti-AFK please!
+
 local path = workspace:WaitForChild"Particles":WaitForChild"Snowflakes"
 local lplr = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-local info = "SnowWare has loaded. Please Take Caution when AutoFarming Snowflakes overnight!"
+local info = "Please Take Caution when AutoFarming Snowflakes overnight! Issues? discord.gg/FJQXYfaAh2"
 
 --[[game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
@@ -30,7 +34,8 @@ function getsnowflake()
     return path:GetChildren()[math.random(1, #path:GetChildren())]
 end
 
-while task.wait(6) do
+while true do
     lplr.HumanoidRootPart.CFrame = getsnowflake().CFrame
-    notif("SnowWare", "teleporting-snowflake", 2.5) --Sorry for a bit of notification spam
+    notif("SnowWare", "Teleporting To Snowflake", 2.5) --Sorry for a bit of notification spam
+    task.wait(6)
 end
