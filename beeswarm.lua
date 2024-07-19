@@ -44,6 +44,7 @@ function main()
         task.spawn(function()
             repeat
                 tweenservice:Create(lplr.HumanoidRootPart, TweenInfo.new(0.1), {CFrame = snowflake.CFrame + Vector3.new(0, 10, 0)}):Play()
+                task.wait(0.1)
             until (tick() - collecttick > 5) or (snowflake.Parent ~= path)
             lplr.HumanoidRootPart.CFrame = snowflake.CFrame
             task.wait(game.Players.LocalPlayer:GetNetworkPing() * 1000)
