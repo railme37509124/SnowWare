@@ -2,11 +2,11 @@ local path = workspace:WaitForChild"Particles":WaitForChild"Snowflakes"
 local lplr = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local info = "SnowWare has loaded. Please Take Caution when AutoFarming Snowflakes overnight!"
 
-game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
+--[[game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
     if State == Enum.TeleportState.Started then
         syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/railme37509124/SnowWare/main/bssV2.lua'))()")
     end
-end)
+end)--]]
 
 function chatmsg(t,c)
     game.StarterGui:SetCore("ChatMakeSystemMessage", {
@@ -30,7 +30,7 @@ function getsnowflake()
     return path:GetChildren()[math.random(1, #path:GetChildren())]
 end
 
-while task.wait(0.3) do
+while task.wait(6) do
     lplr.HumanoidRootPart.CFrame = getsnowflake().CFrame
-    notif("SnowWare", "teleporting-snowflake", 2.5) --Sorry for notification spam
+    notif("SnowWare", "teleporting-snowflake", 2.5) --Sorry for a bit of notification spam
 end
