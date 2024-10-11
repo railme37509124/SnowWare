@@ -41,7 +41,7 @@ function main()
         lplr.Humanoid:MoveTo(Vector3.new(2048, 9125, 6147))
         task.spawn(function()
             repeat
-                tweenservice:Create(lplr.HumanoidRootPart, TweenInfo.new(0.1, Enum.EasingStyle.Linear), {CFrame = snowflake.CFrame + Vector3.new(0, 10, 0)}):Play()
+                tweenservice:Create(lplr.HumanoidRootPart, TweenInfo.new(0.2), {CFrame = snowflake.CFrame + Vector3.new(0, 10, 0)}):Play()
                 task.wait(0.1)
             until (tick() - collecttick > 5) or (snowflake.Parent ~= path)
             lplr.HumanoidRootPart.CFrame = snowflake.CFrame
