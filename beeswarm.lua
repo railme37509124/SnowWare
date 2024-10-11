@@ -1,7 +1,7 @@
 -- SnowWare for BSS | SnowFlake farmer | Use With Caution! | By CrystalHub
 -- This code is horrible but whatever
 -- Dont add to autoexecute it reloads automatically
-
+repeat task.wait() until game:IsLoaded()
 local path = workspace:WaitForChild"Particles":WaitForChild"Snowflakes"
 local lplr = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local tweenservice = game:GetService("TweenService")
@@ -9,9 +9,7 @@ local collecttick = tick()
 local serverhopping = true
 
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    if State == Enum.TeleportState.Started then
-        syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/railme37509124/SnowWare/main/beeswarm.lua'))()")
-    end
+    queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/railme37509124/SnowWare/main/beeswarm.lua'))()")
 end)
 
 if workspace:FindFirstChild("Amulets") then
@@ -43,7 +41,7 @@ function main()
         lplr.Humanoid:MoveTo(Vector3.new(2048, 9125, 6147))
         task.spawn(function()
             repeat
-                tweenservice:Create(lplr.HumanoidRootPart, TweenInfo.new(0.1), {CFrame = snowflake.CFrame + Vector3.new(0, 10, 0)}):Play()
+                tweenservice:Create(lplr.HumanoidRootPart, TweenInfo.new(0.1, Enum.EasingStyle.Linear), {CFrame = snowflake.CFrame + Vector3.new(0, 10, 0)}):Play()
                 task.wait(0.1)
             until (tick() - collecttick > 5) or (snowflake.Parent ~= path)
             lplr.HumanoidRootPart.CFrame = snowflake.CFrame
