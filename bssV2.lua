@@ -1,11 +1,6 @@
 -- SnowWare Snowflake farmer by crystalHub
--- Issues? discord.gg/FJQXYfaAh2
+-- Issues? discord.gg/FJQXYfaAh2 (deleted)
 -- Load an Anti-AFK please!
-
-local path = workspace:WaitForChild"Particles":WaitForChild"Snowflakes"
-local lplr = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
-local info = "Please Take Caution when AutoFarming Snowflakes overnight! Issues? discord.gg/FJQXYfaAh2"
-local collecttick = tick()
 
 function chatmsg(t,c)
     game.StarterGui:SetCore("ChatMakeSystemMessage", {
@@ -21,6 +16,13 @@ function notif(ti,tx,du)
         Duration = du;
     })
 end
+notif("SnowWare", "bro it isnt even beesmas yet!!", 69)
+return
+--[[
+local path = workspace:WaitForChild"Particles":WaitForChild"Snowflakes"
+local lplr = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+local info = "Please Take Caution when AutoFarming Snowflakes overnight! Issues? discord.gg/FJQXYfaAh2"
+local collecttick = tick()
 
 chatmsg(info, Color3.fromRGB(107, 170, 253))
 notif("SnowWare", info, 5)
@@ -47,3 +49,4 @@ while true do
     until (tick() - collecttick > 4.5)
     task.wait(6)
 end
+]]
