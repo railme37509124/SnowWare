@@ -16,9 +16,8 @@ function notif(ti,tx,du)
         Duration = du;
     })
 end
-notif("SnowWare", "bro it isnt even beesmas yet!!", 69)
-return
---[[
+--notif("SnowWare", "bro it isnt even beesmas yet!!", 69)
+
 local path = workspace:WaitForChild"Particles":WaitForChild"Snowflakes"
 local lplr = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local info = "Please Take Caution when AutoFarming Snowflakes overnight! Issues? discord.gg/FJQXYfaAh2"
@@ -49,4 +48,3 @@ while true do
     until (tick() - collecttick > 4.5)
     task.wait(6)
 end
-]]
