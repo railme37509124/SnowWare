@@ -1,5 +1,5 @@
 -- SnowWare Snowflake farmer by crystalHub
--- Issues? discord.gg/FJQXYfaAh2 (deleted)
+-- Issues? https://discord.gg/hFCsjYRVJ4
 -- Load an Anti-AFK please!
 
 function chatmsg(t,c)
